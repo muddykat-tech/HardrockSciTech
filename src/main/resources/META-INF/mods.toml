@@ -1,0 +1,39 @@
+# @file mods.toml
+# @spec TOML v0.5.0 (https://github.com/toml-lang/toml)
+#
+modLoader="javafml"
+loaderVersion="[25,)"
+license="LGPL-3.0"
+
+[[mods]]
+modId = "hrst"
+version = "${version}-${build_number}"
+displayName = "Hardrock Scitech"
+description = "A Custom mod for Hardrock Terrafirmacraft, for all their multiblock and high tech needs."
+authors = "muddykat-tech"
+displayURL = "https://minecraft.curseforge.com/projects/immersive-geology/"
+logoFile = "logo.png"
+credits = '''
+
+'''
+
+[[dependencies.hrst]]
+modId="forge"
+mandatory=true
+versionRange="[47.1.54,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.hrst]]
+modId="minecraft"
+mandatory=true
+versionRange="[${mc_version}]"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.hrst]]
+modId="jei"
+mandatory=false
+versionRange="[${jei_version},)"
+ordering="NONE"
+side="BOTH"

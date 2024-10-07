@@ -66,6 +66,14 @@ public class IGBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         HRSTLib.HRST_LOGGER.info("Generating Multiblock Splits");
         genericmultiblock("techportal");
+        generateGenericBlock(HRSTRegistrationHolder.getBlock.apply("unknown_engineering_block"), "unknown_engineering_block", "static_block/unknown_engineering_block");
+    }
+
+    private void generateGenericBlock(Block block, String block_name, String block_parent)
+    {
+        getVariantBuilder(block).forAllStates(state -> ConfiguredModel.builder().modelFile(models().withExistingParent(
+                                new ResourceLocation(HRSTLib.MODID, "block/" + block_name).getPath(),
+                                new ResourceLocation(HRSTLib.MODID, "block/" + block_parent))).build());
     }
 
     private void genericmultiblock(String registry_name)

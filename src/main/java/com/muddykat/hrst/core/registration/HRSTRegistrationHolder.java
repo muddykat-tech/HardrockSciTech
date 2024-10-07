@@ -16,6 +16,7 @@ import blusunrize.immersiveengineering.api.multiblocks.blocks.component.IMultibl
 import blusunrize.immersiveengineering.api.multiblocks.blocks.component.RedstoneControl;
 import blusunrize.immersiveengineering.api.multiblocks.blocks.logic.IMultiblockLogic;
 import blusunrize.immersiveengineering.api.multiblocks.blocks.logic.IMultiblockState;
+import blusunrize.immersiveengineering.common.register.IEBlocks;
 import com.muddykat.hrst.common.block.multiblocks.*;
 import com.muddykat.hrst.common.block.multiblocks.HRHTPortalMultiblock;
 import com.muddykat.hrst.common.item.*;
@@ -25,6 +26,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -83,6 +85,9 @@ public class HRSTRegistrationHolder {
     {
         initializeMultiblocks();
         registerItem("advanced_tech_tools", () -> new HRSTMBFormationItem(HRHTPortalMultiblock.class));
+
+        registerBlock("unknown_engineering_block", () -> new Block(BlockBehaviour.Properties.copy(IEBlocks.MetalDecoration.ENGINEERING_HEAVY.get())));
+        registerItem("unknown_engineering_block", () -> new BlockItem(getBlock.apply("unknown_engineering_block"), new Item.Properties()));
     }
 
     public static MultiblockRegistration<?> getMB(String key){

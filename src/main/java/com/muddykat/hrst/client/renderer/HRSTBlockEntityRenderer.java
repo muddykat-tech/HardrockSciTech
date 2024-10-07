@@ -20,7 +20,7 @@ import org.joml.Quaternionf;
 import java.util.EnumMap;
 import java.util.Map;
 
-public abstract class IGBlockEntityRenderer<T extends BlockEntity> implements BlockEntityRenderer<T>
+public abstract class HRSTBlockEntityRenderer<T extends BlockEntity> implements BlockEntityRenderer<T>
 {
 	private static final Map<Direction, Quaternionf> ROTATE_FOR_FACING = Util.make(
 			new EnumMap<>(Direction.class), m -> {

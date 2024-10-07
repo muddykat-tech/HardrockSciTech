@@ -8,8 +8,8 @@
 
 package com.muddykat.hrst.client;
 
-import com.muddykat.hrst.common.block.helper.IGBlockType;
-import com.muddykat.hrst.common.item.helper.IGFlagItem;
+import com.muddykat.hrst.common.block.helper.HRSTBlockType;
+import com.muddykat.hrst.common.item.helper.HRSTFlagItem;
 import com.muddykat.hrst.core.registration.HRSTMultiblockProvider;
 import com.muddykat.hrst.core.registration.HRSTRegistrationHolder;
 import net.minecraft.client.Minecraft;
@@ -26,14 +26,13 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
-public class IGClientRenderHandler implements ItemColor, BlockColor {
+public class HRSTClientRenderHandler implements ItemColor, BlockColor {
     // Handles, IG Block and Item Tint Colors, Render Layering and Special Renders
 
     @OnlyIn(Dist.CLIENT)
@@ -42,13 +41,13 @@ public class IGClientRenderHandler implements ItemColor, BlockColor {
     private static final Map<Block, RenderTypeSkeleton> mapping = new HashMap<>();
     private static final Map<Block, Block> inheritances = new HashMap<>();
 
-    public static IGClientRenderHandler INSTANCE = new IGClientRenderHandler();
+    public static HRSTClientRenderHandler INSTANCE = new HRSTClientRenderHandler();
 
     // Register This as the color handler for all IG Items and Blocks
     public static void register(){
         for(Supplier<Item> holder : HRSTRegistrationHolder.getItemRegistryMap().values()){
             Item i = holder.get();
-            if(i instanceof IGFlagItem){
+            if(i instanceof HRSTFlagItem){
                 Minecraft.getInstance().getItemColors().register(INSTANCE, i);
             }
         }
@@ -76,7 +75,7 @@ public class IGClientRenderHandler implements ItemColor, BlockColor {
     // Color Function for IG Blocks
     @Override
     public int getColor(BlockState state, @Nullable BlockAndTintGetter getter, @Nullable BlockPos pos, int index) {
-        if(state.getBlock() instanceof IGBlockType type)
+        if(state.getBlock() instanceof HRSTBlockType type)
             return type.getColor(index);
         return 0xffffff;
     }
@@ -84,7 +83,7 @@ public class IGClientRenderHandler implements ItemColor, BlockColor {
     // Color Function for IG Items
     @Override
     public int getColor(ItemStack stack, int tintIndex) {
-        if(stack.getItem() instanceof IGFlagItem type)
+        if(stack.getItem() instanceof HRSTFlagItem type)
             return type.getColor(tintIndex);
         return 0xffffff;
     }

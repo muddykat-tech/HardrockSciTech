@@ -17,7 +17,7 @@ public class HRSTContent {
         HRSTMultiblockProvider.forceClassLoad();
         HRSTRegistrationHolder.initialize();
         HRSTTags.initialize();
-        IGRecipeTypes.init();
+        HRSTRecipeTypes.init();
     }
 
     public static void initializeManualEntries()

@@ -1,9 +1,9 @@
 package com.muddykat.hrst;
 
-import com.muddykat.hrst.client.IGClientRenderHandler;
+import com.muddykat.hrst.client.HRSTClientRenderHandler;
 import com.muddykat.hrst.core.lib.HRSTLib;
 import com.muddykat.hrst.core.registration.HRSTContent;
-import com.muddykat.hrst.core.registration.IGRecipeSerializers;
+import com.muddykat.hrst.core.registration.HRSTRecipeSerializers;
 import com.muddykat.hrst.core.registration.HRSTRegistrationHolder;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -19,15 +19,15 @@ public class HardrockSciTech {
         HRSTLib.HRST_LOGGER.info("HRST Starting");
         modEventBus.addListener(this::setup);
         modEventBus.addListener(this::clientSetup);
-        IGRecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus);
+        HRSTRecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus);
 
         HRSTRegistrationHolder.addRegistersToEventBus(modEventBus);
         HRSTContent.modContruction(modEventBus);
     }
 
     private void clientSetup(FMLClientSetupEvent event) {
-        IGClientRenderHandler.register();
-        IGClientRenderHandler.init(event);
+        HRSTClientRenderHandler.register();
+        HRSTClientRenderHandler.init(event);
         HRSTContent.initializeManualEntries();
     }
 

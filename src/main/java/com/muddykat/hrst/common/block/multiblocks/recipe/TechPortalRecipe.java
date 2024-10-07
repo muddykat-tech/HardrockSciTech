@@ -14,7 +14,7 @@ import blusunrize.immersiveengineering.api.crafting.IngredientWithSize;
 import blusunrize.immersiveengineering.api.crafting.MultiblockRecipe;
 import blusunrize.immersiveengineering.api.crafting.cache.CachedRecipeList;
 import com.muddykat.hrst.core.lib.HRSTLib;
-import com.muddykat.hrst.core.registration.IGRecipeTypes;
+import com.muddykat.hrst.core.registration.HRSTRecipeTypes;
 import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -31,7 +31,7 @@ import java.util.Set;
 public class TechPortalRecipe extends MultiblockRecipe
 {
 	public static RegistryObject<IERecipeSerializer<TechPortalRecipe>> SERIALIZER;
-	public static final CachedRecipeList<TechPortalRecipe> RECIPES = new CachedRecipeList<>(IGRecipeTypes.TECHPORTAL);
+	public static final CachedRecipeList<TechPortalRecipe> RECIPES = new CachedRecipeList<>(HRSTRecipeTypes.TECHPORTAL);
 	public final Lazy<ItemStack> itemOutput;
 	public final Lazy<FluidStack> fluidOutput;
 	public final Set<FluidTagInput> fluidIn;
@@ -41,7 +41,7 @@ public class TechPortalRecipe extends MultiblockRecipe
 
 	public <T extends Recipe<?>> TechPortalRecipe(ResourceLocation id, IngredientWithSize inputItem, Set<FluidTagInput> fluidInputSet, Lazy<ItemStack> itemOutput, Lazy<FluidStack> fluidOutput, int energy, int time)
 	{
-		super(LAZY_EMPTY, IGRecipeTypes.TECHPORTAL, id);
+		super(LAZY_EMPTY, HRSTRecipeTypes.TECHPORTAL, id);
 		this.itemOutput = itemOutput;
 		this.fluidOutput = fluidOutput;
 		this.fluidIn = fluidInputSet;

@@ -18,7 +18,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.crafting.conditions.ICondition.IContext;
 import org.jetbrains.annotations.Nullable;
 
-public class CrystallizerRecipeSerializer extends IERecipeSerializer<TechPortalRecipe>
+public class TechPortalRecipeSerializer extends IERecipeSerializer<TechPortalRecipe>
 {
 	@Override
 	public ItemStack getIcon()

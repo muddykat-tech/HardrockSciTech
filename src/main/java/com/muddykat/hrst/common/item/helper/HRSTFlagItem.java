@@ -6,15 +6,8 @@
  * Details can be found in the license file in the root folder of this project
  */
 
-package com.muddykat.hrst.common.block.helper;
+package com.muddykat.hrst.common.item.helper;
 
-import net.minecraft.world.level.block.Block;
-
-import java.util.Collection;
-import java.util.Map;
-
-public interface IGBlockType {
-    Block getBlock();
-
+public interface HRSTFlagItem {
     int getColor(int index);
 }

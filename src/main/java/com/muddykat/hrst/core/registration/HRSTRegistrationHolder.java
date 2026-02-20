@@ -85,7 +85,7 @@ public class HRSTRegistrationHolder {
     {
         initializeMultiblocks();
         registerItem("advanced_tech_tools", () -> new HRSTMBFormationItem(HRHTPortalMultiblock.class));
-
+        //SCRANTON Reality Anchor?
         registerBlock("unknown_engineering_block", () -> new Block(BlockBehaviour.Properties.copy(IEBlocks.MetalDecoration.ENGINEERING_HEAVY.get())));
         registerItem("unknown_engineering_block", () -> new BlockItem(getBlock.apply("unknown_engineering_block"), new Item.Properties()));
     }

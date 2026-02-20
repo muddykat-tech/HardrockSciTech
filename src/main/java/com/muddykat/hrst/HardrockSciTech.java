@@ -33,5 +33,6 @@ public class HardrockSciTech {
 
     public void setup(final FMLCommonSetupEvent event)
     {
+
     }
 }
